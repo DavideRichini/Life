@@ -1,0 +1,17 @@
+#main{
+    display: grid;
+    grid-template-columns: repeat(50, auto);
+    grid-template-rows: repeat(50, auto);
+    height: 1px;
+    width: 1px;
+    border: white 2px;
+}
+
+.cell{
+    width: 15px;
+    height: 15px;
+}
+
+#spacer{
+    height: 10px;
+}
