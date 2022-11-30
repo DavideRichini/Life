@@ -24,6 +24,10 @@
             var count=0;
             var colPlus=Columns+1;
             var rowPlus=Rows+1;
+            var u;
+            var d;
+            var r;
+            var l;
 
             for(i=0; i<=rowPlus; i++){
                 
@@ -85,18 +89,21 @@
                 if(run){
                 for(i=1; i<50; i++){
                     for(j=1; j<50; j++){
-                        
-                        count=GameField[i++][j]+GameField[i++][j++]+GameField[i][j++]+GameField[i-1][j++]+GameField[i-1][j]+GameField[i-1][j-1]+GameField[i][j-1]+GameField[i++][j-1];
+                        u=i+1;
+                        d=i-1;
+                        r=j+1;
+                        l=j-1;
+                        count=GameField[u][j]+GameField[u][r]+GameField[i][r]+GameField[d][r]+GameField[d][j]+GameField[d][l]+GameField[i][l]+GameField[u][l];
                         if(count!=0){
                             console.log(count);
-                            console.log(GameField[i++][j]);
+                           /* console.log(GameField[i++][j]);
                             console.log(GameField[i++][j++]);
                             console.log(GameField[i][j++]);
                             console.log(GameField[i--][j++]);
                             console.log(GameField[i--][j]);
                             console.log(GameField[i--][j--]);
                             console.log(GameField[i][j--]);
-                            console.log(GameField[i++][j--]);
+                            console.log(GameField[i++][j--]);*/
                             console.log(i+" "+j);
                         }
                         
