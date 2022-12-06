@@ -1,7 +1,7 @@
 #main{
     display: grid;
-    grid-template-columns: repeat(50, auto);
-    grid-template-rows: repeat(50, auto);
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
     height: 1px;
     width: 1px;
     border: white 2px;

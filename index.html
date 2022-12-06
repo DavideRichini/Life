@@ -19,8 +19,8 @@
             var temp;
             let cells=[0,0];
             var main = document.getElementById("main");
-            let Rows=50;
-            let Columns=50;
+            let Rows=10;
+            let Columns=10;
             var run = false;
             var count=0;
             var colPlus=Columns+1;
@@ -67,9 +67,9 @@
             
             function cleartable(){
                 
-                for(i=1; i<51; i++){
+                for(i=1; i<rowPlus; i++){
     
-                    for(j=1; j<51; j++){
+                    for(j=1; j<colPlus; j++){
         
                         GameField[i][j]=0;
                         
@@ -93,7 +93,11 @@
             function play(){
                 
                 if(run){
+                    console.log(GameField);
                     temp=GameField;
+                    
+                    console.log(temp);
+                    console.log(GameField);
                     for(i=1; i<rowPlus; i++){
                         for(j=1; j<colPlus; j++){
                             
@@ -147,18 +151,20 @@
                                 temp[i][j]=GameField[i][j];
                             }
                             console.log(count);
+                            if(temp!=GameField){
+                                console.log("nope");
+                            }
                         }
                     }
                     
-                    //console.log(temp);
                     updateGrid();
                 }
             }
             
             function updateGrid(){
-                for(i=1; i<51; i++){
+                for(i=1; i<rowPlus; i++){
                     
-                    for(j=1; j<51; j++){
+                    for(j=1; j<colPlus; j++){
                         
                         GameField[i][j]=temp[i][j];
                         
