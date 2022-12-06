@@ -16,11 +16,11 @@
         
         <script>
             var GameField=[10,11];
-            var temp;
+            var temp=[0,0];
             let cells=[0,0];
             var main = document.getElementById("main");
-            let Rows=10;
-            let Columns=10;
+            let Rows=50;
+            let Columns=50;
             var run = false;
             var count=0;
             var colPlus=Columns+1;
@@ -29,15 +29,17 @@
             var d;
             var r;
             var l;
-            var pippo;
 
             for(i=0; i<=rowPlus; i++){
                 
              GameField[i]=[];
+             temp[i]=[];
+                
     
                 for(j=0; j<=colPlus; j++){
         
                   GameField[i][j]=0;
+                  temp[i][j]=0;
                 }
             }
             
@@ -56,13 +58,13 @@
                 if(GameField[pos[0]][pos[1]]==0){
                     event.target.style["background-color"]="green";
                     GameField[pos[0]][pos[1]]=1;
+                    temp[pos[0]][pos[1]]=1;
                     
                 } else{
                     event.target.style["background-color"]="#283639";
                     GameField[pos[0]][pos[1]]=0;
+                    temp[pos[0]][pos[1]]=0;
                 }
-                console.log(GameField[pos[0]][pos[1]]);
-                console.log(GameField);
             }
             
             function cleartable(){
@@ -72,7 +74,7 @@
                     for(j=1; j<colPlus; j++){
         
                         GameField[i][j]=0;
-                        
+                        temp[i][j]=0;
                         document.getElementById(i+"."+j).setAttribute("style", "background-color:#283639;");
                     }
                 }
@@ -83,35 +85,26 @@
                 
                 if(run){
                     run=false;
-                    console.log("no");
                 }else{
                     run=true;
-                    console.log("si");
                 }
             }
             
             function play(){
                 
                 if(run){
-                    console.log(GameField);
-                    temp=GameField;
                     
-                    console.log(temp);
-                    console.log(GameField);
+                    
                     for(i=1; i<rowPlus; i++){
                         for(j=1; j<colPlus; j++){
                             
-                            pippo=i;
-                            u=pippo+1;
+                            u=i+1;
                             
-                            pippo=i;
-                            d=pippo-1;
+                            d=i-1;
                             
-                            pippo=j;
-                            r=pippo+1;
+                            r=j+1;
                             
-                            pippo=i;
-                            l=pippo-1;
+                            l=j-1;
                             
                             count=0;
                             
@@ -124,12 +117,14 @@
                             count=count+GameField[d][l];
                             
                             count=count+GameField[u][r];
-                            
+                           
                             count=count+GameField[d][r];
-                            
+                         
                             count=count+GameField[d][j];
-                            
+                  
                             count=count+GameField[u][j];
+                      
+                            
                             
                             if(count<2){
                                 
@@ -144,15 +139,7 @@
                                 temp[i][j]=0;
                             }
                             else if(count==2){
-                                console.log("j="+j);
-                                console.log("i="+i);
-                                console.log(GameField);
-                                console.log(GameField);
                                 temp[i][j]=GameField[i][j];
-                            }
-                            console.log(count);
-                            if(temp!=GameField){
-                                console.log("nope");
                             }
                         }
                     }
@@ -179,7 +166,9 @@
                     }
                 }
             }
-            setInterval(play,1000);
+            
+            
+            setInterval(play,100);
             
         </script>
     </body>
